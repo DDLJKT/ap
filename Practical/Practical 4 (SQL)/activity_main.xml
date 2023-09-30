@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:stretchColumns="*"
+    tools:context=".MainActivity">
+    <TableRow>
+        <TextView
+            android:id="@+id/myname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shaikh Nadim KSBSC(IT)058"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:layout_span="2" />
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="Name:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"/>
+        <EditText
+            android:id="@+id/get_name"
+            android:hint="Enter Your Name"
+            android:textColor="@color/black"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="Roll No:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"/>
+        <EditText
+            android:id="@+id/get_roll_no"
+            android:hint="Enter Your Roll No"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:maxLength="3"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="Age:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"/>
+        <EditText
+            android:id="@+id/get_age"
+            android:hint="Enter Your Age"
+            android:textColor="@color/black"
+            android:inputType="number"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="Phone Number:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"/>
+        <EditText
+            android:id="@+id/get_phone_number"
+            android:hint="Enter Your Phone Number"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:maxLength="10" />
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="Address:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"/>
+        <EditText
+            android:id="@+id/get_address"
+            android:hint="Enter Your Address"
+            android:textColor="@color/black"
+            android:inputType="text"
+            android:maxLength="30"
+            android:maxLines="3"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="Gender:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"/>
+        <RadioGroup
+            android:id="@+id/get_gender">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:id="@+id/get_male"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/get_female"/>
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Other"
+                android:id="@+id/get_other"/>
+        </RadioGroup>
+    </TableRow>
+    <TableRow android:layout_marginTop="20dp">
+        <TextView
+            android:text="Email:"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:paddingLeft="20dp"/>
+        <EditText
+            android:id="@+id/get_email"
+            android:inputType="textEmailAddress"
+            android:hint="Enter Your Email"/>
+    </TableRow>
+    <TableRow
+        android:layout_marginTop="20dp">
+        <Button
+            android:id="@+id/btn"
+            android:layout_span="2"
+            android:text="Insert Data"
+            android:textStyle="bold"/>
+    </TableRow>
+</TableLayout>

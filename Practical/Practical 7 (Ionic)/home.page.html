@@ -1,0 +1,124 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Student Registration </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div id="container">
+    <ion-item>
+      <ion-label>ID</ion-label>
+      <ion-input type="text" name="id" [(ngModel)]="student.id"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="student.name"></ion-input>
+    </ion-item>
+
+    <p>Gender</p>
+    <ion-item>
+      <ion-radio-group name="gender" [(ngModel)]="student.gender">
+        <ion-radio value="Male">Male</ion-radio><br />
+        <ion-radio value="Female">Female</ion-radio><br />
+        <ion-radio value="Other">Other</ion-radio>
+      </ion-radio-group>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-input type="text" name="city" [(ngModel)]="student.city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input
+        type="text"
+        name="phone"
+        [(ngModel)]="student.phone"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input
+        type="text"
+        name="email"
+        [(ngModel)]="student.email"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-input
+        type="text"
+        name="address"
+        [(ngModel)]="student.address"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button (click)="onRegister()" type="submit">Register</ion-button>
+
+    <ion-item>
+      <ion-label>ID</ion-label>
+      <ion-input
+        type="text"
+        name="display1"
+        [(ngModel)]="student.display1"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Name</ion-label>
+      <ion-input
+        type="text"
+        name="display2"
+        [(ngModel)]="student.display2"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-input
+        type="text"
+        name="display3"
+        [(ngModel)]="student.display3"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>City</ion-label>
+      <ion-input
+        type="text"
+        name="display4"
+        [(ngModel)]="student.display4"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Phone Number</ion-label>
+      <ion-input
+        type="text"
+        name="display5"
+        [(ngModel)]="student.display5"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Email</ion-label>
+      <ion-input
+        type="text"
+        name="display6"
+        [(ngModel)]="student.display6"
+      ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Address</ion-label>
+      <ion-input
+        type="text"
+        name="display7"
+        [(ngModel)]="student.display7"
+      ></ion-input>
+    </ion-item>
+  </div>
+</ion-content>
