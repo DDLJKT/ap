@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Welcome</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Welcome, {{ user?.name }}</h2>
+  <p>Age: {{ user?.age }}</p>
+  <p>Email: {{ user?.email }}</p>
+
+  <ion-button expand="block" (click)="incrementCounter()">
+    Counter: {{ counter }}
+  </ion-button>
+</ion-content>

@@ -1,0 +1,121 @@
+// Program to demonstrate Database connectivity
+
+DBHelper.java
+public class DBHelper extends SQLiteOpenHelper {
+
+    private static final String DATABASE_NAME = "StudentDB";
+    private static final int DATABASE_VERSION = 1;
+    private static final String TABLE_NAME = "students";
+    private static final String COL_ID = "id";
+    private static final String COL_NAME = "name";
+
+    public DBHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL("CREATE TABLE " + TABLE_NAME + " (" +
+                COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COL_NAME + " TEXT)");
+    }
+
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+        onCreate(db);
+    }
+
+    // Insert data
+    public boolean insertStudent(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COL_NAME, name);
+        long result = db.insert(TABLE_NAME, null, values);
+        return result != -1;
+    }
+
+    // Get all data
+    public Cursor getAllStudents() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+    }
+}
+
+MainActivity.java
+public class MainActivity extends AppCompatActivity {
+
+    DBHelper dbHelper;
+    EditText nameInput;
+    Button insertBtn, showBtn;
+    TextView resultView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        dbHelper = new DBHelper(this);
+        nameInput = findViewById(R.id.nameInput);
+        insertBtn = findViewById(R.id.insertBtn);
+        showBtn = findViewById(R.id.showBtn);
+        resultView = findViewById(R.id.resultView);
+
+        insertBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = nameInput.getText().toString();
+                if (dbHelper.insertStudent(name)) {
+                    Toast.makeText(MainActivity.this, "Inserted Successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Insert Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        showBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Cursor cursor = dbHelper.getAllStudents();
+                StringBuilder sb = new StringBuilder();
+                while (cursor.moveToNext()) {
+                    sb.append(cursor.getInt(0)).append(" - ").append(cursor.getString(1)).append("\n");
+                }
+                resultView.setText(sb.toString());
+            }
+        });
+    }
+}
+
+activity_main.xml
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:padding="20dp">
+
+    <EditText
+android:id="@+id/nameInput"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:hint="Enter Student Name" />
+
+    <Button
+android:id="@+id/insertBtn"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Insert Data" />
+
+    <Button
+android:id="@+id/showBtn"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="Show Data" />
+
+    <TextView
+android:id="@+id/resultView"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:paddingTop="10dp"
+android:text="Results will appear here" />
+</LinearLayout>

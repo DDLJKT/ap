@@ -1,0 +1,44 @@
+ionic g page register
+ionic g page display
+
+----xxx---
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Student Registration</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form (ngSubmit)="onRegister()">
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="email" [(ngModel)]="student.email" name="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Date of Birth</ion-label>
+      <ion-datetime presentation="date" [(ngModel)]="student.dob" name="dob"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">City</ion-label>
+      <ion-input [(ngModel)]="student.city" name="city"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Hobby</ion-label>
+      <ion-input [(ngModel)]="student.hobby" name="hobby"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Gender</ion-label>
+      <ion-select [(ngModel)]="student.gender" name="gender">
+        <ion-select-option value="Male">Male</ion-select-option>
+        <ion-select-option value="Female">Female</ion-select-option>
+        <ion-select-option value="Other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-button expand="block" type="submit">Register</ion-button>
+  </form>
+</ion-content>

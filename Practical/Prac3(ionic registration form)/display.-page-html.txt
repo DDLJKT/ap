@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Student Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Email: {{ student?.email }}</h2>
+  <h2>Date of Birth: {{ student?.dob }}</h2>
+  <h2>City: {{ student?.city }}</h2>
+  <h2>Hobby: {{ student?.hobby }}</h2>
+  <h2>Gender: {{ student?.gender }}</h2>
+</ion-content>

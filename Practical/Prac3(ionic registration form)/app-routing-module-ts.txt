@@ -1,0 +1,5 @@
+const routes: Routes = [
+  { path: '', redirectTo: 'register', pathMatch: 'full' },
+  { path: 'register', loadChildren: () => import('./register/register.module').then(m => m.RegisterPageModule) },
+  { path: 'display', loadChildren: () => import('./display/display.module').then(m => m.DisplayPageModule) }
+];

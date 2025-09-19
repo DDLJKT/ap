@@ -1,0 +1,81 @@
+Q. Program for User Login Form which gives Login Successful on correct username and password(correct/incorrect)
+activity_main.xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <EditText
+        android:id="@+id/UserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="text"
+        android:text="UserName" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Password" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.55"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:text="" />
+
+</LinearLayout>
+
+ 
+MainActivity.java
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        EditText Username= findViewById(R.id.UserName);
+        EditText Password= findViewById(R.id.Password);
+        Button button= findViewById(R.id.button);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) TextView tvResult = findViewById(R.id.result);
+
+        Username.setOnClickListener(v -> {
+            String  user = Username.getText().toString();
+            String pass = Password.getText().toString();
+
+            if (user.equals("sakshi") && pass.equals("1234")){
+                    tvResult.setText("Login Successful");
+            }else {
+                tvResult.setText("Login Failed");
+            }
+        });
+    }
+}

@@ -1,0 +1,32 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.page.html',
+  styleUrls: ['./login.page.scss'],
+})
+export class LoginPage {
+  user = {
+    name: '',
+    age: '',
+    email: '',
+    username: '',
+    password: ''
+  };
+
+  // Example valid login
+  validUser = { username: 'admin', password: '12345' };
+
+  constructor(private router: Router) {}
+
+  onLogin() {
+    if (this.user.username === this.validUser.username &&
+        this.user.password === this.validUser.password) {
+      alert('Login Successful');
+      this.router.navigate(['/home'], { state: { user: this.user } });
+    } else {
+      alert('Invalid username or password');
+    }
+  }
+}

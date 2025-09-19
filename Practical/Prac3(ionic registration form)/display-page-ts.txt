@@ -1,0 +1,16 @@
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-display',
+  templateUrl: './display.page.html',
+  styleUrls: ['./display.page.scss'],
+})
+export class DisplayPage {
+  student: any;
+
+  constructor(private router: Router) {
+    const nav = this.router.getCurrentNavigation();
+    this.student = nav?.extras.state?.['student'];
+  }
+}
